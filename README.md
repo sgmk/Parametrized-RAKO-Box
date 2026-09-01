@@ -45,7 +45,7 @@ Using a combination of reference photos, official Utz technical catalogs, and ev
 
 * **Support Blockers**: To ensure your slicer only generates supports for the bottom rim and doesn't accidentally try to support the embossed text or the upper support-free rims, add a large support blocker volume (cube) covering the entire upper half of the box.
 
-* **Scaling the Model**: If you want to print miniaturized versions of the boxes, scaling the generated STLs down to **33%** in your slicer is the sweet spot. At 33%, the snap-fit hinges still function perfectly. You can scale them down to **25%** because they look incredibly cute, but be warned that the hinges will be at the absolute limit of their mechanical stability and may become too fragile!
+* **Scaling the Model**: The OpenSCAD design is scaled 1:1 to the exact size and proportions of commercial RAKO boxes. However, **we strongly advise against printing them at full scale!** Printing a full-size RAKO box is an immense waste of time, energy, and PLA—if you need a full-size box, it makes much more sense for the environment (and your wallet) to just buy a real injection-molded one! Instead, this model is meant to be scaled down in your slicer to create perfect miniature organizers. Scaling the generated STLs down to **33%** in your slicer is the sweet spot. At 33%, the snap-fit hinges still function perfectly. You can scale them down to **25%** because they look incredibly cute, but be warned that the hinges will be at the absolute limit of their mechanical stability and may become too fragile!
 
 ## 🚀 Usage
 1. Place both `rako_box_V4.scad` and the accompanying `rako_box_V4.json` presets file in the same folder.
