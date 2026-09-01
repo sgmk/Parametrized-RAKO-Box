@@ -53,3 +53,28 @@ Using a combination of reference photos, official Utz technical catalogs, and ev
 3. Ensure the Customizer is visible (View -> Customizer).
 4. Use the dropdowns to configure your box, or select one of the pre-configured presets from the top dropdown (smallSize, midSize, largeSize).
 5. Render (`F6`) and Export to STL!
+
+### Automated Exporting & Scaling
+We have included a handy bash script (`export_stls.sh`) to automatically generate all STLs (the main boxes and the split lids) for the standard presets in one go.
+
+To export everything at 1:1 full scale:
+```bash
+./export_stls.sh
+```
+
+**Auto-Scaling for Miniatures:**
+Because we strongly recommend printing miniatures, the script supports an optional scale parameter. It will automatically pass this to OpenSCAD and append the scale to the output filenames, so your 1:1 scale STLs are never accidentally overwritten!
+
+For example, to export all files pre-scaled to 33%:
+```bash
+./export_stls.sh 0.33
+```
+This will generate neatly named files like `STLs/smallSize/smallSize_box_scale0.33.stl`.
+
+*(Note: The presets `smallSize`, `midSize`, and `largeSize` are hardcoded in the script to match the `.json` file. If you save a new custom preset in the Customizer (for example, named `myCustomBox`), you can manually run this command in your terminal to export it, or just add it to the bash script!)*
+
+```bash
+openscad -o STLs/myCustomBox/myCustomBox_box.stl -p rako_box_V4.json -P myCustomBox -D part=\"box\" rako_box_V4.scad
+openscad -o STLs/myCustomBox/myCustomBox_lid_upper.stl -p rako_box_V4.json -P myCustomBox -D part=\"lid_upper\" rako_box_V4.scad
+openscad -o STLs/myCustomBox/myCustomBox_lid_lower.stl -p rako_box_V4.json -P myCustomBox -D part=\"lid_lower\" rako_box_V4.scad
+```
