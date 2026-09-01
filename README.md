@@ -5,10 +5,23 @@ A highly customizable, 3D-printable OpenSCAD model of the classic Utz RAKO Eurob
 
 This repository contains a fully parametric, printable model that mathematically replicates the complex draft-tapered geometry, structural rims, and stacking feet of a real RAKO box, allowing you to print custom storage solutions that perfectly interlock with industry standards.
 
+## 📖 History of this Project
+This project started as an experiment in human-AI collaboration during the [ddoS (das dreitägige odenwilusenz Sommerfest) event](https://ddos.odenwilusenz.ch/Hauptseite) late at night. The goal was to collaborate with an AI assistant to reverse-engineer and parametrically design a highly complex, 3D-printable replica of the classic Utz RAKO Eurobox.
+
+Using a combination of reference photos, official Utz technical catalogs, and even audio messages to describe the intricate physical details (like the continuous draft taper, horizontal rims, and corner gussets), we iteratively refined the model. The entire geometry was coded from scratch in **OpenSCAD**, guided by continuous back-and-forth feedback with **Gemini AI**. Over the course of the night, we went from struggling with basic proportions to mathematically deriving a robust, parametric, support-free printing framework that accurately replicates the authentic industrial design.
+
 ## 📸 Gallery
 ### Real Prints
 ![Printed Box Open](photos/1_small_RAKO_open.jpg)
 ![Printed Box Reference](photos/2_small_RAKO_ref.jpg)
+
+### Technical Drawings
+*The structural complexity of the RAKO system is derived from its continuous draft taper and nested inset tiers. The outer shell, inner ribs, and bottom stacking foot each reside on precise inward-leaning planes to ensure immense rigidity while allowing identical boxes to interlock seamlessly with a perfect 1mm tolerance. Note that while this model replicates the authentic stacking geometry, the exact wall thicknesses and rib dimensions have been optimized for FDM 3D printing and structural stability, rather than being a 1:1 identical copy of the original injection-molded box.*
+
+<p align="center">
+  <img src="technical_drawing_midSize_overall.svg" alt="Overall Cross-Section" height="350" />
+  <img src="technical_drawing_midSize.svg" alt="Detailed Wall Cross-Section" height="350" />
+</p>
 
 ### OpenSCAD Customizer Renders
 *(Large size presets shown with Snap-on Lids)*
@@ -24,6 +37,14 @@ This repository contains a fully parametric, printable model that mathematically
 ## 🖨️ 3D Printing Tips
 * **Support Triangles**: Real Utz RAKO boxes don't have small triangular supports under the top rim. However, because FDM 3D printers struggle with aggressive 90-degree overhangs, this parametric model introduces optional support triangles. Leave these enabled in the Customizer to allow the box to print cleanly without needing any slicer-generated support material!
 * **Bottom Rim Supports**: While the top rims print support-free, it is highly recommended to enable standard slicer supports for the absolute bottom stacking foot/rim. These supports are very easy to remove and ensure the underside prints with perfect dimensional accuracy, guaranteeing the foot clicks cleanly inside the box below it when stacked.
+
+<p align="center">
+  <img src="img/Screenshot_supportBottom.png" alt="Bottom Supports in Slicer" width="48%" />
+  <img src="img/Screenshot_support_blocker.png" alt="Support Blocker in Slicer" width="48%" />
+</p>
+
+* **Support Blockers**: To ensure your slicer only generates supports for the bottom rim and doesn't accidentally try to support the embossed text or the upper support-free rims, add a large support blocker volume (cube) covering the entire upper half of the box.
+
 * **Scaling the Model**: If you want to print miniaturized versions of the boxes, scaling the generated STLs down to **33%** in your slicer is the sweet spot. At 33%, the snap-fit hinges still function perfectly. You can scale them down to **25%** because they look incredibly cute, but be warned that the hinges will be at the absolute limit of their mechanical stability and may become too fragile!
 
 ## 🚀 Usage
