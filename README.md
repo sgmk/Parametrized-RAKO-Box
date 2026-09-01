@@ -19,8 +19,8 @@ Using a combination of reference photos, official Utz technical catalogs, and ev
 *The structural complexity of the RAKO system is derived from its continuous draft taper and nested inset tiers. The outer shell, inner ribs, and bottom stacking foot each reside on precise inward-leaning planes to ensure immense rigidity while allowing identical boxes to interlock seamlessly with a perfect 1mm tolerance. Note that while this model replicates the authentic stacking geometry, the exact wall thicknesses and rib dimensions have been optimized for FDM 3D printing and structural stability, rather than being a 1:1 identical copy of the original injection-molded box.*
 
 <p align="center">
-  <img src="technical_drawing_midSize_overall.svg" alt="Overall Cross-Section" height="350" />
-  <img src="technical_drawing_midSize.svg" alt="Detailed Wall Cross-Section" height="350" />
+  <img src="technical_drawing_midSize_overall.svg" alt="Overall Cross-Section" width="65%" />
+  <img src="technical_drawing_midSize.svg" alt="Detailed Wall Cross-Section" width="33%" />
 </p>
 
 ### OpenSCAD Customizer Renders
