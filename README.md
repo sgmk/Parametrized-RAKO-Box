@@ -5,6 +5,8 @@ A highly customizable, 3D-printable OpenSCAD model of the classic Utz RAKO Eurob
 
 This repository contains a fully parametric, printable model that mathematically replicates the complex draft-tapered geometry, structural rims, and stacking feet of a real RAKO box, allowing you to print custom storage solutions that perfectly interlock with industry standards.
 
+<img src="img/rako_box_animation.gif" alt="Animated Rako Box" width="65%" />
+
 ## 📖 History of this Project
 This project started as an experiment in human-AI collaboration during the [ddoS (das dreitägige odenwilusenz Sommerfest) event](https://ddos.odenwilusenz.ch/Hauptseite) late at night. The goal was to collaborate with an AI assistant to reverse-engineer and parametrically design a highly complex, 3D-printable replica of the classic Utz RAKO Eurobox.
 
