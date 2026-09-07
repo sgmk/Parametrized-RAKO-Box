@@ -27,6 +27,11 @@ Using a combination of reference photos, official Utz technical catalogs, and ev
 *(Large size presets shown with Snap-on Lids)*
 ![Large Size](img/largeSize_both_grey.png)
 
+## 🆕 What's New in V5
+* **Living-Hinge Snap Clips**: The lid now features flexible drop-down snap clips that mechanically lock into the existing side zip-tie holes of the box. The thickness of the clip dynamically calculates to fill the hole depth perfectly for a snug fit.
+* **Independent Lid Thickness**: The lid plate thickness has been decoupled from the main wall thickness, allowing you to make much thicker, more robust lids without having to unnecessarily bulk up the box walls.
+* **Refined Bash Exporting**: Included bash script now perfectly batch exports standard configurations, completely stripping OpenSCAD parameter overrides.
+
 ## ✨ Features
 * **Standard & Custom Sizes**: Use the built-in dropdowns to instantly select all standard Utz RAKO footprint sizes (200x150, 300x200, 400x300, 600x400, 800x600) and standard heights, or disable it to enter fully custom L x W x H bounds.
 * **Mathematical Stacking**: The model automatically calculates wall thicknesses and dynamic inset steps to guarantee a perfect 1.0mm clearance stacking fit. The boxes will interlock tightly with each other and with real commercial Euroboxes.
@@ -48,10 +53,10 @@ Using a combination of reference photos, official Utz technical catalogs, and ev
 * **Scaling the Model**: The OpenSCAD design is scaled 1:1 to the exact size and proportions of commercial RAKO boxes. However, **we strongly advise against printing them at full scale!** Printing a full-size RAKO box is an immense waste of time, energy, and PLA—if you need a full-size box, it makes much more sense for the environment (and your wallet) to just buy a real injection-molded one! Instead, this model is meant to be scaled down in your slicer to create perfect miniature organizers. Scaling the generated STLs down to **33%** in your slicer is the sweet spot. At 33%, the snap-fit hinges still function perfectly. You can scale them down to **25%** because they look incredibly cute, but be warned that the hinges will be at the absolute limit of their mechanical stability and may become too fragile!
 
 ## 🚀 Usage
-1. Place both `rako_box_V4.scad` and the accompanying `rako_box_V4.json` presets file in the same folder.
+1. Place both `rako_box_V5.scad` and the accompanying `rako_box_V5.json` presets file in the same folder.
 2. Open the `.scad` file in **OpenSCAD**.
 3. Ensure the Customizer is visible (View -> Customizer).
-4. Use the dropdowns to configure your box, or select one of the pre-configured presets from the top dropdown (smallSize, midSize, largeSize).
+4. Use the dropdowns to configure your box, or select one of the pre-configured presets from the top dropdown (smallSize, midSize, largeSize, BrushologyBox).
 5. Render (`F6`) and Export to STL!
 
 ### Automated Exporting & Scaling
@@ -59,22 +64,27 @@ We have included a handy bash script (`export_stls.sh`) to automatically generat
 
 To export everything at 1:1 full scale:
 ```bash
-./export_stls.sh
+bash export_stls.sh
+```
+
+**Targeting a Single Preset:**
+If you only want to export a specific preset, you can pass its name as the second argument (after the scale factor).
+For example, to export only the `BrushologyBox` at 1:1 scale:
+```bash
+bash export_stls.sh 1.0 BrushologyBox
 ```
 
 **Auto-Scaling for Miniatures:**
 Because we strongly recommend printing miniatures, the script supports an optional scale parameter. It will automatically pass this to OpenSCAD and append the scale to the output filenames, so your 1:1 scale STLs are never accidentally overwritten!
 
-For example, to export all files pre-scaled to 33%:
+For example, to export all presets pre-scaled to 33%:
 ```bash
-./export_stls.sh 0.33
+bash export_stls.sh 0.33
 ```
-This will generate neatly named files like `STLs/smallSize/smallSize_box_scale0.33.stl`.
-
-*(Note: The presets `smallSize`, `midSize`, and `largeSize` are hardcoded in the script to match the `.json` file. If you save a new custom preset in the Customizer (for example, named `myCustomBox`), you can manually run this command in your terminal to export it, or just add it to the bash script!)*
-
+Or to export *only* the `smallSize` preset at 50%:
 ```bash
-openscad -o STLs/myCustomBox/myCustomBox_box.stl -p rako_box_V4.json -P myCustomBox -D part=\"box\" rako_box_V4.scad
-openscad -o STLs/myCustomBox/myCustomBox_lid_upper.stl -p rako_box_V4.json -P myCustomBox -D part=\"lid_upper\" rako_box_V4.scad
-openscad -o STLs/myCustomBox/myCustomBox_lid_lower.stl -p rako_box_V4.json -P myCustomBox -D part=\"lid_lower\" rako_box_V4.scad
+bash export_stls.sh 0.5 smallSize
 ```
+This will generate neatly named files like `STLs/smallSize/smallSize_V5_box_scale0.5.stl`.
+
+*(Note: If you save a new custom preset in the Customizer (for example, named `myCustomBox`), you can simply run `bash export_stls.sh 1.0 myCustomBox` and the script will automatically export it for you!)*
